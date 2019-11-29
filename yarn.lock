@@ -812,6 +812,12 @@
   resolved "https://registry.npm.taobao.org/@types/q/download/@types/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha1-aQoUdbhPKohP0HzXl8APXzE1bqg=
 
+"@types/vue-material@git+https://github.com/calebsander/vue-material-types.git":
+  version "1.1.0"
+  resolved "git+https://github.com/calebsander/vue-material-types.git#9e5e41e598a9cd9962f07f52cd7743de8bd7e4a0"
+  dependencies:
+    vue "*"
+
 "@types/webpack-env@^1.13.9":
   version "1.14.1"
   resolved "https://registry.npm.taobao.org/@types/webpack-env/download/@types/webpack-env-1.14.1.tgz#0d8a53f308f017c53a5ddc3d07f4d6fa76b790d7"
@@ -8117,6 +8123,11 @@ vue-loader@^15.7.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-material@^1.0.0-beta-11:
+  version "1.0.0-beta-11"
+  resolved "https://registry.npm.taobao.org/vue-material/download/vue-material-1.0.0-beta-11.tgz#11baf0cdb22a35d35859c619099d6c3cb3cc2cc3"
+  integrity sha1-EbrwzbIqNdNYWcYZCZ1sPLPMLMM=
+
 vue-property-decorator@^8.3.0:
   version "8.3.0"
   resolved "https://registry.npm.taobao.org/vue-property-decorator/download/vue-property-decorator-8.3.0.tgz#536f027dc7d626f37c8d85a2dc02f0a6cb979440"
@@ -8150,10 +8161,15 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
 
-vue@^2.6.10:
+vue@*, vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha1-pysaQqTYKnIepDjRtr9V5mGVxjc=
+
+vuelidate@^0.7.4:
+  version "0.7.4"
+  resolved "https://registry.npm.taobao.org/vuelidate/download/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
+  integrity sha1-Wg5UvgmsAZLxqjOH10uS4JRb+Ko=
 
 vuex@^3.1.2:
   version "3.1.2"
