@@ -1,39 +1,28 @@
 <template>
-  <div class="page-container">
-    <md-app md-waterfall md-mode="fixed">
-      <md-app-toolbar class="md-primary">
-        <!-- <home-header/> -->
-      </md-app-toolbar>
+ <div>
+   <el-container>
+    <el-aside width="200px">
+      <homeAside></homeAside>
+    </el-aside>
+    <el-main>
+     
+         <router-view/>
 
-      <md-app-drawer md-permanent="full">
-        <md-toolbar class="md-primary " md-elevation="0">
-          <!-- <img src="../assets/img/yfaa.png" width="50"> -->
-          <h2>安全作业管控系统</h2>
-        </md-toolbar>
-
-        <home-aside/>
-      </md-app-drawer>
-
-      <md-app-content>
-        <!-- <keep-alive> -->
-          <router-view></router-view>
-        <!-- </keep-alive> -->
-        
-      </md-app-content>
-
-    </md-app>
-  </div>
+    </el-main>
+  </el-container>
+ </div>
 </template>
 
 <script lang="ts">
 import homeAside from "../components/home/aside.vue";
-import homeHeader from "../components/home/header.vue";
+
 import { Component, Prop, Vue } from "vue-property-decorator";
 
+
 @Component({
-  components: { homeAside, homeHeader }
+  components: { homeAside }
 })
-export default class Home extends Vue {};
+export default class operationControl extends Vue {};
 </script>
 
 <style lang="scss" scoped>
@@ -57,4 +46,11 @@ h2{
     height: 100%;
     text-align: centerl;
 }
+
+
+
+// .el-aside{
+//   // width: 100%;
+//   height: 100%;
+// }
 </style>
