@@ -32,25 +32,33 @@
     </div>
 
     
+
+    
   </div>
 </template>
 
 
 
 <style lang="scss">
-
+@import url(~@/assets/scss/second.scss);
 *{
    margin: 0;
     padding: 0;
 }
-#app {
+html,body{
+  width: 100%;
+  height: 100%;
+  overflow:  scroll hidden;
+}
+
+#app { 
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: url(~@/assets/img/bg.jpg);
-  background-size: 100% 100%;
+  // background: url(~@/assets/img/bg.png);
+  // background-size: 100% 100%;
   height: 100%;
 }
 
@@ -67,29 +75,32 @@
   }
 }
 </style>
+
+
 <style lang="scss" scoped>
 
 @import url(~@/assets/scss/index.scss);
 h6{
-  height: 150px;
-  line-height: 150px;
+  height: 46px;
+  line-height: 46px;
   margin: 0;
   padding: 0;
-  font-size: 40px;
+  font-size: 28px;
   color: rgb(0,222,225);
   // background: url(./assets/img/title.png);
   // background-size: 100% 100%
-  border-top:15px solid transparent;
-   border-bottom:15px solid transparent;
+  border-top:40px solid transparent;
+  border-bottom:20px solid transparent;
   // margin-bottom: 30px;
 }
 
 ul{
-  width: 1170px;
-  height: 80px;
+  width: 100%;
+  height: 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 auto;
+  margin-top: 10px
 }
 
 li{
@@ -98,7 +109,7 @@ li{
   // flex: 1;
   margin:0 10px;
   cursor: pointer;
-  line-height: 80px;
+  line-height: 60px;
   font-size: 16px;
   font-family:   sans-serif;
   font-weight: bold;
@@ -106,6 +117,7 @@ li{
   padding: 0;
   position: relative;
   transition: all 0.5s;
+  transform:scale(1);
   &:hover{
     transform: scale(1.2)
   }
@@ -136,10 +148,10 @@ li{
 
 
 .main{
-  width: 80%;
+  width: 1400px;
   margin: 40px auto;
   padding: 0;
-  height: calc(100vh - 340px);
+  height: calc(100vh - 266px);
   // height: 100%;
 }
 

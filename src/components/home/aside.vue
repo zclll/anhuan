@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div style="height: 100%; border-right: 1px solid #e6e6e6">
      <el-col>
        <h5>作业</h5>
-    <el-menu :default-active="this.$route.path" router  background-color="transparent">
+    <el-menu :default-active="this.$route.path" router style="opacity:100%;" background-color="transparent">
       <el-menu-item index="/operationControl/definition" >
         <template slot="title"
           ><i class="el-icon-message" ></i>作业定义列表</template
@@ -34,59 +34,25 @@ import { Component, Vue } from "vue-property-decorator";
 @Component({})
 export default class ExpertApproval extends Vue {
 
-  // handleOpen(a,b){
-  //   console.log(a,b)
-  // }
-
-  // handleClose(){
-  // }
-
-  // foo(){
-  //   this.$router.push({path:'/definition'})
-  // }
  
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
-
-
-
-
-$list-width: 320px;
-
-.aside-wrapper {
-  height: calc(100vh - 184px);
-  overflow-x: hidden;
-  overflow-y: scroll;
-  width: 240px;
+h5{
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  color:white;
+  line-height: 50px;
+}
+.el-menu-item{
+  color: white
 }
 
-.full-control {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
+.el-menu{
+  border-right: none
 }
 
-.list {
-  width: $list-width;
-}
-
-.full-control > .md-list {
-  width: $list-width;
-  max-width: 100%;
-  height: 400px;
-  display: inline-block;
-  overflow: auto;
-  border: 1px solid rgba(#000, 0.12);
-  vertical-align: top;
-}
-
-.control {
-  min-width: 250px;
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-}
 </style>
