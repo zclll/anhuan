@@ -1,9 +1,6 @@
 <template>
   <div style="height:100%">
     <el-row>
-      <el-col :span="24" class='center'><div>动火作业审批表</div></el-col>
-    </el-row>
-    <el-row>
       <el-col :span="6" class="pp"><div>工程名称：</div></el-col>
        <el-col :span="6"><div>动火作业</div></el-col>
       <el-col :span="6" class="pp"><div>施工单位：</div></el-col>
@@ -50,77 +47,18 @@
 
     <div class="detail">
       <p>审批意见</p>
+      <div class="details">{{$store.state.opinion ? $store.state.opinion : ''}}</div>
 
-      <el-input
-        type="textarea"
-        :rows="3"
-        resize='none'
-        placeholder="请输入内容"
-        v-model="input[0]">
-      </el-input>
+      
 
       <el-row>
-        <el-col class="ii" :span='12'><el-col  :span='12'>审批人签字</el-col><el-col  :span='12' class="inp"><el-input v-model="input[1]" placeholder="请输入内容"></el-input></el-col></el-col>
-        <el-col  class="ii" :span='12'><el-col  :span='12'>时间</el-col><el-col  :span='12' class="inp"><el-input v-model="input[2]" placeholder="请输入内容"></el-input></el-col></el-col>
+        <el-col class="ii" :span='12'><el-col  :span='12'>审批人签字</el-col><el-col  :span='12' class="inp"><div class="details">{{$store.state.name ? $store.state.name : ''}}</div></el-col></el-col>
+        <el-col  class="ii" :span='12'><el-col  :span='12'>时间</el-col><el-col  :span='12' class="inp"><div class="details">{{$store.state.time ? $store.state.time : ''}}</div></el-col></el-col>
         
       </el-row>
     </div>
-
-    <el-button type="primary" round @click="agree()">同意审批</el-button>
-    <el-button type="primary" round @click="disAgree()">驳回</el-button>
   </div>
 </template>
-
-<script lang="ts">
-// import homeAside from "../components/home/aside.vue";
-// import homeHeader from "../components/home/header.vue";
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
-export default class definition extends Vue {
-    textarea:string = ''
-    input:any = []
-
-    agree(){
-
-      if(this.input[0] != '' && this.input[0] != undefined && this.input[1] != '' && this.input[1] != undefined){
-        if(this.input[2] !='' && this.input[2] != undefined){
-           this.$store.commit('editState',this.input)
-            this.$router.push({path:'/operationControl/homework'})
-        }else{
-          var date = new Date();
-
-          var year = date.getFullYear();
-          var month = date.getMonth()+1;    //js从0开始取 
-          var date1 = date.getDate(); 
-          var hour = date.getHours(); 
-          var minutes = date.getMinutes(); 
-          var second = date.getSeconds();
-          
-          this.input[2] =  year+"-"+month+"-"+String(date1).padStart(2,'0')+" "+String(hour).padStart(2,'0')+":"+String(minutes).padStart(2,'0') +":"+ String(second).padStart(2,'0');
-
-          this.$store.commit('editState',this.input)
-          this.$router.push({path:'/operationControl/homework'})
-        }
-       
-       
-      }else{
-        this.$message({
-          showClose: true,
-          message: '请正确填写资料',
-          type: 'warning'
-        });
-      }
-      
-    }
-
-
-
-};
-</script>
-
-
-
 <style lang="scss" scoped>
 
 .el-row{
@@ -138,7 +76,7 @@ export default class definition extends Vue {
   width: 100%;
   border: 1px solid black;
   border-bottom: none;
-  color: white;
+  color: black;
   box-sizing: border-box;
   font-size: 14px;
   &:nth-last-of-type(1){
@@ -149,7 +87,7 @@ export default class definition extends Vue {
     line-height: 40px;
     text-align: left;
     text-indent: 20px;
-    background: #092149;
+    background: white;
   }
   .details{
     width: 100%;
@@ -170,12 +108,12 @@ export default class definition extends Vue {
   border: none !important;
 }
   .pp{
-    background: #092149
+    background: white;
   }
 
   .el-col{
     border-right: 1px solid black;
-    color: white;
+    color: black;
     height: 40px;
     line-height: 40px;
     text-align: left;
@@ -192,12 +130,21 @@ export default class definition extends Vue {
   .center{
     text-align: center;
     font-weight:bold;
-    background: #042d5b;
   }
   
 
 
 
 </style>
+<script lang="ts">
+// import homeAside from "../components/home/aside.vue";
+// import homeHeader from "../components/home/header.vue";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
+@Component
+export default class definition extends Vue {
+    textarea:string = ''
+    input:any = []
+};
+</script>
 

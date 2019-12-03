@@ -1,13 +1,15 @@
 <template>
   <div style="height:100%">
-    <el-table :data="tableData" height="100%" :row-class-name="tableRowClassName">
+    <el-table :data="tableData" height="100%" :row-class-name="tableRowClassName"
       style="width: 100%;">
-      <el-table-column prop="id" label="作业编号"></el-table-column>
+      <el-table-column prop="id1" label="作业编号"></el-table-column>
       <el-table-column prop="name" label="作业名称"></el-table-column>
       <el-table-column prop="type" label="作业类型"></el-table-column>
       <el-table-column prop="date" label="作业归属部门"></el-table-column>
       <el-table-column>
-        <el-button style="background:'red'" >发起作业</el-button>
+        <template slot-scope="scope">
+          <el-button style="background:'red'" @click="Launch(scope)">发起作业</el-button>
+        </template>
       </el-table-column>
       <el-table-column width="70">
         <template slot-scope="scope">
@@ -30,6 +32,7 @@
       center
     >
 
+    <!-- 修改 -->
     <el-form ref="form"  label-width="80px">
         <el-form-item label="作业名称:">
             <el-input v-model="input[0]"></el-input>
@@ -48,18 +51,15 @@
             <el-input v-model="input[2]"></el-input>
         </el-form-item>
     </el-form>
-      
-          
-    
-
-
-
 
       <span slot="footer" class="dialog-footer">
         <el-button @click="dialogVisible = false">取 消</el-button>
         <el-button type="primary" @click="sure()">确 定</el-button>
       </span>
     </el-dialog>
+
+
+
   </div>
 </template>
 
@@ -72,67 +72,78 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 export default class definition extends Vue {
   tableData: any = [
     {
-      id: "00026 0001 00 000     01     0001",
-      name: "工艺调度作业",
+      id:0,
+      id1: "00026 0001 00 000     01     0001",
+      name: "动火作业",
       type: "随机作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0012",
+      id:1,
+      id1: "00026 0001 00 000     01     0012",
       name: "吊装作业",
       type: "随机作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0023",
-      name: "动火作业",
+      id:2,
+      id1: "00026 0001 00 000     01     0023",
+      name: "工艺调度作业",
       type: "自由作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0024",
+      id:3,
+      id1: "00026 0001 00 000     01     0024",
       name: "动土作业",
       type: "随机作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0030",
+      id:4,
+      id1: "00026 0001 00 000     01     0030",
       name: "断路作业",
       type: "自由作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0033",
+      id:5,
+      id1: "00026 0001 00 000     01     0033",
       name: "高处作业",
       type: "自由作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0055",
+      id:6,
+      id1: "00026 0001 00 000     01     0055",
       name: "设备检修作业",
       type: "随机作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0057",
+      id:7,
+      id1: "00026 0001 00 000     01     0057",
       name: "盲板抽堵作业",
       type: "随机作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0110",
+      id:8,
+      id1: "00026 0001 00 000     01     0110",
       name: "受限空间作业",
       type: "自由作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0115",
+      id:9,
+      id1: "00026 0001 00 000     01     0115",
       name: "临时用电作业",
       type: "自由作业",
       date: "安防部"
     },
     {
-      id: "00026 0001 00 000     01     0120",
+      id:10,
+      id1: "00026 0001 00 000     01     0120",
       name: "特种设备特种环境作业",
       type: "自由作业",
       date: "安防部"
@@ -206,13 +217,18 @@ export default class definition extends Vue {
       message: "修改成功!"
     });
   }
+
+
+  Launch(row:any){
+    this.$router.push({path:'/operationControl/approval',query:{id:row.row.id}})
+  }
 }
 </script>
 <style lang="scss">
-.el-button {
-  background: #4a95f6;
-  color: white;
-  border: none;
-}
+  .el-button {
+    background: #4a95f6;
+    color: white;
+    border: none;
+  }
 </style>
 

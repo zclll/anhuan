@@ -26,6 +26,9 @@ export default class operationControl extends Vue {};
 </script>
 
 <style lang="scss" scoped>
+
+
+
 .md-app {
   height: calc(100vh - 120px);
 }
@@ -48,8 +51,8 @@ h2{
 }
 
 .el-main{
-  padding: 0px 40px;
-  padding-right: 20px;
+  padding: 0px 20px;
+  // padding-right: 40px;
 }
 
 
@@ -139,7 +142,20 @@ h2{
 .el-table__body-wrapper::-webkit-scrollbar-thumb {
     background-color: #ddd;
     border-radius: 3px;
+    
 }
+
+::-webkit-scrollbar{
+  width: 5px;/* 纵向滚动条*/
+  height: 5px;/* 横向滚动条 */
+}
+::-webkit-scrollbar-thumb{
+   background-color: #ddd;
+    border-radius: 3px;
+}
+
+
+
 
   .el-table .row1{
      background: #092149;
@@ -148,5 +164,8 @@ h2{
       
        background: #042d5b;
   }
+
+
+
 
 </style>

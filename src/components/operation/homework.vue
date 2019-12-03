@@ -15,6 +15,11 @@
     <el-table-column prop="state" label="作业阶段"></el-table-column>
     <el-table-column prop="endTime" label="作业结束时间" ></el-table-column>
     <el-table-column prop="evaluation" label="作业评价" ></el-table-column>
+    <el-table-column width="70">
+        <template slot-scope="scope">
+          <el-button icon="el-icon-view" circle @click="view(scope)"></el-button>
+        </template>
+      </el-table-column>
   </el-table>
 </template>
 
@@ -126,6 +131,21 @@ export default class definition extends Vue {
     }
   }
 
+  created(){
+    if(this.$store.state.opinion){
+      this.tableData.unshift({
+            name: '动火作业',
+            time: this.$store.state.time,
+            people: "鲁振宇",
+            state: "作业准备"
+      })
+    }
+  }
+
+  view(){
+    this.$router.push({path:'/operationControl/process'})
+  }
+
 }
 </script>
 
@@ -146,4 +166,11 @@ export default class definition extends Vue {
     background-color: #ddd;
     border-radius: 3px;
 }
+
+
+.el-button {
+    background: #4a95f6;
+    color: white;
+    border: none;
+  }
 </style>
